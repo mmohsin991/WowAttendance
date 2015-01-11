@@ -24,7 +24,6 @@ class ViewController: UIViewController {
 
     @IBAction func btnClicked(sender: AnyObject) {
         
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("VC1") as ViewController1
         
         let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
@@ -35,6 +34,8 @@ class ViewController: UIViewController {
         
         window!.rootViewController = containerViewController
         window!.makeKeyAndVisible()
+        
+        
         
 //        self.dismissViewControllerAnimated(true, completion: {
 //            self.presentViewController(vc, animated: true, completion: nil)

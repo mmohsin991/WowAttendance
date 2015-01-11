@@ -16,7 +16,7 @@ protocol CenterViewControllerDelegate {
     optional func collapseSidePanels()
 }
 
-class HomeVC: UIViewController {
+class HomeVC: WowUIViewController {
 
     @IBOutlet weak var imgBackground: UIImageView!
     
@@ -24,23 +24,21 @@ class HomeVC: UIViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var btnLogOut: UIButton!
 
-    var delegate: CenterViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.navigationItem.title = "Home"
+        
+        println("HomeVCload")
         
         if loginUser != nil{
             lblName.text = "\(loginUser!.firstName) \(loginUser!.lastName)"
             lblEmail.text = loginUser?.email
         }
         
-        delegate?.collapseSidePanels?()
+      //  delegate?.collapseSidePanels!()
         
         self.btnLogOut.layer.cornerRadius = 4.0
-        
-      //  self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 10)))
-
         
     }
     
@@ -54,9 +52,7 @@ class HomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func rightMenu(sender: AnyObject) {
-        delegate?.toggleRightPanel!()
-    }
+
     
     @IBAction func logOut(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: {
@@ -70,7 +66,8 @@ class HomeVC: UIViewController {
             
         }
     }
-    @IBAction func btnMenu(sender: AnyObject) {
-    }
 
+    @IBAction func rightMenu(sender: AnyObject) {
+        delegate?.toggleRightPanel!()
+    }
 }

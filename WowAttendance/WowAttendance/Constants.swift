@@ -22,3 +22,27 @@ var backgroundImageView = UIImageView(image: backgroundImage)
 
 var currentTheme = "Background2"
 
+var shadowColor = UIColor.blackColor().CGColor
+
+
+//
+//extension UIViewController{
+//    var delegate: CenterViewControllerDelegate? {
+//        get{
+//            return self.delegate
+//        }
+//        set{
+//            self.delegate = newValue
+//        }
+//
+//
+//    }
+//}
+
+
+
+
+class WowUIViewController: UIViewController {
+    var delegate: CenterViewControllerDelegate?
+
+}

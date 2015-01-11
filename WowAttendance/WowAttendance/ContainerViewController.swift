@@ -15,10 +15,11 @@ enum SlideOutState {
   case RightPanelExpanded
 }
 
-class ContainerViewController: UIViewController, CenterViewControllerDelegate, UIGestureRecognizerDelegate {
+class ContainerViewController: UIViewController, CenterViewControllerDelegate, SidePanelViewControllerDelegate, UIGestureRecognizerDelegate {
   var centerNavigationController: UINavigationController!
-  var centerViewController: HomeVC?
+  var centerViewController: WowUIViewController?
 
+    // represent the current state of secondary view
   var currentState: SlideOutState = .BothCollapsed {
     didSet {
       let shouldShowShadow = currentState != .BothCollapsed
@@ -30,14 +31,33 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
   var rightViewController: SidePanelViewController?
 
   let centerPanelExpandedOffset: CGFloat = 60
+    
+    
+    
+    // delegate function that call when ever row selected in side panel VC
+    func VClSelected(#VC: WowUIViewController) {
+        
+        self.centerNavigationController.viewControllers[0] = VC
+        
+        self.centerViewController = VC
+        
+        centerViewController?.delegate = self
+
+        self.collapseSidePanels()
+
+        println("VClSelected")
+        
+    }
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    centerViewController = UIStoryboard.homeVC()
+    if centerViewController == nil {
+        centerViewController = UIStoryboard.homeVC()
+ 
+    }
 
     centerViewController?.delegate = self
-    
     
 
     // wrap the centerViewController in a navigation controller, so we can push views to it
@@ -53,6 +73,10 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     
   }
 
+    override func viewWillAppear(animated: Bool) {
+        println("containcerVC");
+        
+    }
   // MARK: CenterViewController delegate methods
 
 //  func toggleLeftPanel() {
@@ -75,7 +99,10 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     animateRightPanel(shouldExpand: notAlreadyExpanded)
   }
 
-  func collapseSidePanels() {
+    func collapseSidePanels() {
+        
+ //   self.centerViewController = VC
+        
     switch (currentState) {
     case .RightPanelExpanded:
       toggleRightPanel()
@@ -99,6 +126,8 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     if (rightViewController == nil) {
       rightViewController = UIStoryboard.rightViewController()
 
+        rightViewController?.delegate = self
+        
       addChildSidePanelController(rightViewController!)
     }
   }
@@ -139,7 +168,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     } else {
       animateCenterPanelXPosition(targetPosition: 0) { _ in
         self.currentState = .BothCollapsed
-
+        
         self.rightViewController!.view.removeFromSuperview()
         self.rightViewController = nil;
       }
@@ -160,7 +189,11 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
 
   func showShadowForCenterViewController(shouldShowShadow: Bool) {
     if (shouldShowShadow) {
-      centerNavigationController.view.layer.shadowOpacity = 1.0
+        centerNavigationController.view.layer.shadowOpacity = 0.3
+        centerNavigationController.view.layer.shadowOffset = CGSize(width: 3, height: 0)
+        centerNavigationController.view.layer.shadowRadius = 10.0
+        centerNavigationController.view.layer.shadowColor = shadowColor
+        
     } else {
       centerNavigationController.view.layer.shadowOpacity = 0.0
     }
@@ -197,7 +230,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
             recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
             recognizer.setTranslation(CGPointZero, inView: view)
         }
-        // if right menu collapced
+        // if right menu collapsed
         else if self.centerNavigationController.view.frame.origin.x < 0.0 {
             recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
             recognizer.setTranslation(CGPointZero, inView: view)
@@ -218,22 +251,4 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
       break
     }
   }
-}
-
-private extension UIStoryboard {
-  class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
-
-  class func leftViewController() -> SidePanelViewController? {
-    return mainStoryboard().instantiateViewControllerWithIdentifier("LeftViewController") as? SidePanelViewController
-  }
-
-  class func rightViewController() -> SidePanelViewController? {
-    return mainStoryboard().instantiateViewControllerWithIdentifier("menuVCID") as? SidePanelViewController
-  }
-
-    
-    class func homeVC() -> HomeVC? {
-        return mainStoryboard().instantiateViewControllerWithIdentifier("homeVCID") as? HomeVC
-    }
-    
 }

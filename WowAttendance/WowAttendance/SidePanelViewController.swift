@@ -10,14 +10,14 @@ import UIKit
 
 @objc
 protocol SidePanelViewControllerDelegate {
-  func animalSelected(animal: Animal)
+    func VClSelected(#VC: WowUIViewController)
 }
 
 class SidePanelViewController: UITableViewController {
 
     var tempData = ["Home","Teams","Preferences"]
 
-
+    var delegate: SidePanelViewControllerDelegate?
 
   struct TableView {
     struct CellIdentifiers {
@@ -39,7 +39,17 @@ class SidePanelViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        performSegueWithIdentifier("showDetail", sender: indexPath.row)
+        if indexPath.row == 0 {
+            delegate?.VClSelected(VC: UIStoryboard.homeVC()!)
+        }
+            
+        else if indexPath.row == 1 {
+            delegate?.VClSelected(VC: UIStoryboard.teamsVC()!)
+        }
+            
+        else if indexPath.row == 2 {
+            delegate?.VClSelected(VC: UIStoryboard.preferencesVC()!)
+        }
         
     }
     
@@ -89,10 +99,31 @@ class SidePanelViewController: UITableViewController {
             return 65.0
     }
     
+    
+}
 
+extension UIStoryboard {
+    class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+    class func leftViewController() -> SidePanelViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("LeftViewController") as? SidePanelViewController
+    }
+    
+    class func rightViewController() -> SidePanelViewController? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("menuVCID") as? SidePanelViewController
+    }
+    
+    class func homeVC() -> HomeVC? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("homeVCID") as? HomeVC
+    }
+    
+    class func preferencesVC() -> PreferencesVC? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("preferencesVCID") as? PreferencesVC
+    }
+    
+    class func teamsVC() -> TeamsVC? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("teamsVCID") as? TeamsVC
+    }
 
-    
-    
-    
 }
 
