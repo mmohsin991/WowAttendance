@@ -17,7 +17,7 @@ class SidePanelViewController: UITableViewController {
 
     var tempData = ["Home","Teams","Preferences"]
 
-    
+
 
   struct TableView {
     struct CellIdentifiers {
@@ -27,10 +27,9 @@ class SidePanelViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
         
-        self.view.frame.origin = CGPoint(x: 300, y: 200)
+       // self.view.frame.origin = CGPoint(x: 200 , y: 0)
         
     }
 
@@ -82,6 +81,13 @@ class SidePanelViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "MENU"
+    }
+    
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
+            return 65.0
+    }
     
 
 

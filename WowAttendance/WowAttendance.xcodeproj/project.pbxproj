@@ -19,7 +19,6 @@
 		4248B2361A6281160003784E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2351A6281160003784E /* CFNetwork.framework */; };
 		4248B2381A6281310003784E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2371A6281310003784E /* Security.framework */; };
 		4248B23A1A62813E0003784E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2391A62813E0003784E /* SystemConfiguration.framework */; };
-		42E9E6C11A61661200720F9F /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BD1A61661200720F9F /* CenterViewController.swift */; };
 		42E9E6C21A61661200720F9F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BE1A61661200720F9F /* ContainerViewController.swift */; };
 		42E9E6C31A61661200720F9F /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */; };
 		42E9E6C41A61661200720F9F /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6C01A61661200720F9F /* Animal.swift */; };
@@ -48,7 +47,6 @@
 		42E9E6F51A61677E00720F9F /* ID-1009881.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 42E9E6EA1A61677E00720F9F /* ID-1009881.jpg */; };
 		42E9E6F71A6170D900720F9F /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6F61A6170D900720F9F /* ViewController1.swift */; };
 		42E9E6F91A61AF5F00720F9F /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6F81A61AF5F00720F9F /* HomeVC.swift */; };
-		42E9E6FB1A61AF7600720F9F /* MasterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6FA1A61AF7600720F9F /* MasterVC.swift */; };
 		42E9E6FD1A61B05C00720F9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6FC1A61B05C00720F9F /* Constants.swift */; };
 		42E9E6FF1A61BDD400720F9F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6FE1A61BDD400720F9F /* Model.swift */; };
 		42E9E7021A61BE6500720F9F /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E9E7011A61BE6500720F9F /* Firebase.framework */; };
@@ -81,7 +79,6 @@
 		4248B2351A6281160003784E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4248B2371A6281310003784E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4248B2391A62813E0003784E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		42E9E6BD1A61661200720F9F /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		42E9E6BE1A61661200720F9F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		42E9E6C01A61661200720F9F /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 		42E9E6EA1A61677E00720F9F /* ID-1009881.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ID-1009881.jpg"; sourceTree = "<group>"; };
 		42E9E6F61A6170D900720F9F /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		42E9E6F81A61AF5F00720F9F /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		42E9E6FA1A61AF7600720F9F /* MasterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterVC.swift; sourceTree = "<group>"; };
 		42E9E6FC1A61B05C00720F9F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		42E9E6FE1A61BDD400720F9F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		42E9E7011A61BE6500720F9F /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
@@ -144,12 +140,7 @@
 		423D62CD1A60718B00D92D1B = {
 			isa = PBXGroup;
 			children = (
-				4248B2391A62813E0003784E /* SystemConfiguration.framework */,
-				4248B2371A6281310003784E /* Security.framework */,
-				4248B2351A6281160003784E /* CFNetwork.framework */,
-				4248B2331A6281080003784E /* libc++.dylib */,
-				4248B2311A6280F80003784E /* libicucore.dylib */,
-				42E9E7011A61BE6500720F9F /* Firebase.framework */,
+				4248B23B1A62A7A90003784E /* Framework */,
 				423D62D81A60718B00D92D1B /* WowAttendance */,
 				423D62F11A60718B00D92D1B /* WowAttendanceTests */,
 				423D62D71A60718B00D92D1B /* Products */,
@@ -175,8 +166,6 @@
 				423D62E01A60718B00D92D1B /* ViewController.swift */,
 				42E9E6F61A6170D900720F9F /* ViewController1.swift */,
 				42E9E6F81A61AF5F00720F9F /* HomeVC.swift */,
-				42E9E6FA1A61AF7600720F9F /* MasterVC.swift */,
-				42E9E6BD1A61661200720F9F /* CenterViewController.swift */,
 				42E9E6BE1A61661200720F9F /* ContainerViewController.swift */,
 				42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */,
 				42E9E6C01A61661200720F9F /* Animal.swift */,
@@ -214,6 +203,19 @@
 				423D62F31A60718B00D92D1B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4248B23B1A62A7A90003784E /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				4248B2391A62813E0003784E /* SystemConfiguration.framework */,
+				4248B2371A6281310003784E /* Security.framework */,
+				4248B2351A6281160003784E /* CFNetwork.framework */,
+				4248B2331A6281080003784E /* libc++.dylib */,
+				4248B2311A6280F80003784E /* libicucore.dylib */,
+				42E9E7011A61BE6500720F9F /* Firebase.framework */,
+			);
+			name = Framework;
 			sourceTree = "<group>";
 		};
 		42E9E6C71A6166D900720F9F /* Cats */ = {
@@ -390,9 +392,7 @@
 				42E9E6FF1A61BDD400720F9F /* Model.swift in Sources */,
 				423D62E11A60718B00D92D1B /* ViewController.swift in Sources */,
 				42E9E6F91A61AF5F00720F9F /* HomeVC.swift in Sources */,
-				42E9E6C11A61661200720F9F /* CenterViewController.swift in Sources */,
 				42E9E6C21A61661200720F9F /* ContainerViewController.swift in Sources */,
-				42E9E6FB1A61AF7600720F9F /* MasterVC.swift in Sources */,
 				42E9E6C41A61661200720F9F /* Animal.swift in Sources */,
 				423D62DF1A60718B00D92D1B /* WowAttendance.xcdatamodeld in Sources */,
 				423D62DC1A60718B00D92D1B /* AppDelegate.swift in Sources */,

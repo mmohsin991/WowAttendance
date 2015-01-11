@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Home"
+       // self.navigationItem.title = "Home"
         
         if loginUser != nil{
             lblName.text = "\(loginUser!.firstName) \(loginUser!.lastName)"
@@ -36,10 +36,10 @@ class HomeVC: UIViewController {
         }
         
         delegate?.collapseSidePanels?()
-
-        
         
         self.btnLogOut.layer.cornerRadius = 4.0
+        
+      //  self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 10)))
 
         
     }
@@ -55,7 +55,7 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func rightMenu(sender: AnyObject) {
-        delegate?.toggleLeftPanel?()
+        delegate?.toggleRightPanel!()
     }
     
     @IBAction func logOut(sender: AnyObject) {
@@ -69,6 +69,8 @@ class HomeVC: UIViewController {
         if segue.identifier == "logoutSeg"{
             
         }
+    }
+    @IBAction func btnMenu(sender: AnyObject) {
     }
 
 }

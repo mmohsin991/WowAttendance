@@ -34,9 +34,11 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    centerViewController = self.storyboard?.instantiateViewControllerWithIdentifier("homeVCID") as? HomeVC
+    centerViewController = UIStoryboard.homeVC()
 
     centerViewController?.delegate = self
+    
+    
 
     // wrap the centerViewController in a navigation controller, so we can push views to it
     // and display bar button items in the navigation bar
@@ -48,6 +50,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
 
     let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
     centerNavigationController.view.addGestureRecognizer(panGestureRecognizer)
+    
   }
 
   // MARK: CenterViewController delegate methods
@@ -113,7 +116,9 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     if (shouldExpand) {
       currentState = .LeftPanelExpanded
 
-      animateCenterPanelXPosition(targetPosition: CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset)
+     // animateCenterPanelXPosition(targetPosition: CGRectGetWidth(centerNavigationController.view.frame) - centerPanelExpandedOffset)
+        animateCenterPanelXPosition(targetPosition: 260, completion: nil)
+
     } else {
       animateCenterPanelXPosition(targetPosition: 0) { finished in
         self.currentState = .BothCollapsed
@@ -128,7 +133,9 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     if (shouldExpand) {
       currentState = .RightPanelExpanded
 
-      animateCenterPanelXPosition(targetPosition: -CGRectGetWidth(centerNavigationController.view.frame) + centerPanelExpandedOffset)
+   //   animateCenterPanelXPosition(targetPosition: -CGRectGetWidth(centerNavigationController.view.frame) + centerPanelExpandedOffset)
+        animateCenterPanelXPosition(targetPosition: -260, completion: nil)
+
     } else {
       animateCenterPanelXPosition(targetPosition: 0) { _ in
         self.currentState = .BothCollapsed
@@ -141,13 +148,19 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
 
   func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
     UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
-      self.centerNavigationController.view.frame.origin.x = targetPosition
+        // set the distance of right VC from X-Axis
+        let centerCVWidth = self.centerNavigationController.view.frame.width
+        if self.rightViewController != nil {
+            self.rightViewController?.view.frame.origin.x = targetPosition + centerCVWidth
+        }
+        self.centerNavigationController.view.frame.origin.x = targetPosition
+
       }, completion: completion)
   }
 
   func showShadowForCenterViewController(shouldShowShadow: Bool) {
     if (shouldShowShadow) {
-      centerNavigationController.view.layer.shadowOpacity = 0.8
+      centerNavigationController.view.layer.shadowOpacity = 1.0
     } else {
       centerNavigationController.view.layer.shadowOpacity = 0.0
     }
@@ -158,7 +171,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
   func handlePanGesture(recognizer: UIPanGestureRecognizer) {
     // we can determine whether the user is revealing the left or right
     // panel by looking at the velocity of the gesture
-    let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
+    let gestureIsDraggingFromRighttoLeft = (recognizer.velocityInView(view).x < 0)
 
     switch(recognizer.state) {
     case .Began:
@@ -166,10 +179,12 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
         // If the user starts panning, and neither panel is visible
         // then show the correct panel based on the pan direction
 
-        if (gestureIsDraggingFromLeftToRight) {
+        if (gestureIsDraggingFromRighttoLeft) {
+            addRightPanelViewController()
+        }
+        else {
 //          addLeftPanelViewController()
-        } else {
-          addRightPanelViewController()
+
         }
 
         showShadowForCenterViewController(true)
@@ -177,15 +192,25 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, U
     case .Changed:
       // If the user is already panning, translate the center view controller's
       // view by the amount that the user has panned
-      recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-      recognizer.setTranslation(CGPointZero, inView: view)
+        
+        if gestureIsDraggingFromRighttoLeft {
+            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+            recognizer.setTranslation(CGPointZero, inView: view)
+        }
+        // if right menu collapced
+        else if self.centerNavigationController.view.frame.origin.x < 0.0 {
+            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+            recognizer.setTranslation(CGPointZero, inView: view)
+        }
+
     case .Ended:
       // When the pan ends, check whether the left or right view controller is visible
       if (leftViewController != nil) {
         // animate the side panel open or closed based on whether the view has moved more or less than halfway
         let hasMovedGreaterThanHalfway = recognizer.view!.center.x > view.bounds.size.width
         animateLeftPanel(shouldExpand: hasMovedGreaterThanHalfway)
-      } else if (rightViewController != nil) {
+      }
+      else if (rightViewController != nil) {
         let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
         animateRightPanel(shouldExpand: hasMovedGreaterThanHalfway)
       }
@@ -206,9 +231,6 @@ private extension UIStoryboard {
     return mainStoryboard().instantiateViewControllerWithIdentifier("menuVCID") as? SidePanelViewController
   }
 
-  class func centerViewController() -> CenterViewController? {
-    return mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController") as? CenterViewController
-  }
     
     class func homeVC() -> HomeVC? {
         return mainStoryboard().instantiateViewControllerWithIdentifier("homeVCID") as? HomeVC
