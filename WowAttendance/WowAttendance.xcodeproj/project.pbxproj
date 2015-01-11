@@ -14,6 +14,11 @@
 		423D62E61A60718B00D92D1B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 423D62E51A60718B00D92D1B /* Images.xcassets */; };
 		423D62E91A60718B00D92D1B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423D62E71A60718B00D92D1B /* LaunchScreen.xib */; };
 		423D62F51A60718B00D92D1B /* WowAttendanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D62F41A60718B00D92D1B /* WowAttendanceTests.swift */; };
+		4248B2321A6280F80003784E /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2311A6280F80003784E /* libicucore.dylib */; };
+		4248B2341A6281080003784E /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2331A6281080003784E /* libc++.dylib */; };
+		4248B2361A6281160003784E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2351A6281160003784E /* CFNetwork.framework */; };
+		4248B2381A6281310003784E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2371A6281310003784E /* Security.framework */; };
+		4248B23A1A62813E0003784E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4248B2391A62813E0003784E /* SystemConfiguration.framework */; };
 		42E9E6C11A61661200720F9F /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BD1A61661200720F9F /* CenterViewController.swift */; };
 		42E9E6C21A61661200720F9F /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BE1A61661200720F9F /* ContainerViewController.swift */; };
 		42E9E6C31A61661200720F9F /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */; };
@@ -71,6 +76,11 @@
 		423D62EE1A60718B00D92D1B /* WowAttendanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WowAttendanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		423D62F31A60718B00D92D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423D62F41A60718B00D92D1B /* WowAttendanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WowAttendanceTests.swift; sourceTree = "<group>"; };
+		4248B2311A6280F80003784E /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		4248B2331A6281080003784E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		4248B2351A6281160003784E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4248B2371A6281310003784E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4248B2391A62813E0003784E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		42E9E6BD1A61661200720F9F /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		42E9E6BE1A61661200720F9F /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +122,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4248B23A1A62813E0003784E /* SystemConfiguration.framework in Frameworks */,
+				4248B2381A6281310003784E /* Security.framework in Frameworks */,
+				4248B2361A6281160003784E /* CFNetwork.framework in Frameworks */,
+				4248B2341A6281080003784E /* libc++.dylib in Frameworks */,
+				4248B2321A6280F80003784E /* libicucore.dylib in Frameworks */,
 				42E9E7021A61BE6500720F9F /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +144,11 @@
 		423D62CD1A60718B00D92D1B = {
 			isa = PBXGroup;
 			children = (
+				4248B2391A62813E0003784E /* SystemConfiguration.framework */,
+				4248B2371A6281310003784E /* Security.framework */,
+				4248B2351A6281160003784E /* CFNetwork.framework */,
+				4248B2331A6281080003784E /* libc++.dylib */,
+				4248B2311A6280F80003784E /* libicucore.dylib */,
 				42E9E7011A61BE6500720F9F /* Firebase.framework */,
 				423D62D81A60718B00D92D1B /* WowAttendance */,
 				423D62F11A60718B00D92D1B /* WowAttendanceTests */,
