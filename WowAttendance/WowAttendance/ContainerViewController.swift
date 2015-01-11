@@ -15,7 +15,7 @@ enum SlideOutState {
   case RightPanelExpanded
 }
 
-class ContainerViewController: UIViewController, CenterViewControllerDelegate, SidePanelViewControllerDelegate, UIGestureRecognizerDelegate {
+class ContainerViewController: UIViewController, CenterViewControllerDelegate, SidePanelViewControllerDelegate, LogoutDelegate, UIGestureRecognizerDelegate {
   var centerNavigationController: UINavigationController!
   var centerViewController: WowUIViewController?
 
@@ -44,8 +44,6 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
         centerViewController?.delegate = self
 
         self.collapseSidePanels()
-
-        println("VClSelected")
         
     }
 
@@ -73,10 +71,6 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
     
   }
 
-    override func viewWillAppear(animated: Bool) {
-        println("containcerVC");
-        
-    }
   // MARK: CenterViewController delegate methods
 
 //  func toggleLeftPanel() {
@@ -127,6 +121,7 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
       rightViewController = UIStoryboard.rightViewController()
 
         rightViewController?.delegate = self
+        rightViewController?.logoutDelegate = self
         
       addChildSidePanelController(rightViewController!)
     }
@@ -251,4 +246,21 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
       break
     }
   }
+    
+    
+    func Logout() {
+//         self.dismissViewControllerAnimated(true, completion: nil)
+  
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let window = appDel.window?
+        
+        //let loginVC = self.storyboard?.instantiateViewControllerWithIdentifier("loginVCID") as LoginVC
+        
+        //let loginVC = LoginVC()
+        
+        window!.rootViewController = UIStoryboard.loginVC()
+        window!.makeKeyAndVisible()
+        
+        
+    }
 }

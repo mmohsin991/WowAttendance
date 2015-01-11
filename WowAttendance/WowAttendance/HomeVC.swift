@@ -38,7 +38,6 @@ class HomeVC: WowUIViewController {
         
       //  delegate?.collapseSidePanels!()
         
-        self.btnLogOut.layer.cornerRadius = 4.0
         
     }
     

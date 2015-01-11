@@ -54,7 +54,6 @@ class TeamsVC: WowUIViewController, UISplitViewControllerDelegate {
         self.tableview.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0)
         self.tableview.separatorInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
         
-        self.btnLogOut.layer.cornerRadius = 4.0
         self.btnAdd.layer.cornerRadius = 4.0
 
         

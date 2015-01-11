@@ -13,11 +13,20 @@ protocol SidePanelViewControllerDelegate {
     func VClSelected(#VC: WowUIViewController)
 }
 
+
+protocol LogoutDelegate {
+    func Logout()
+}
+
+
+
 class SidePanelViewController: UITableViewController {
 
-    var tempData = ["Home","Teams","Preferences"]
+    var tempData = ["Home","Teams","Preferences","Log Out"]
 
     var delegate: SidePanelViewControllerDelegate?
+    
+    var logoutDelegate: LogoutDelegate?
 
   struct TableView {
     struct CellIdentifiers {
@@ -50,7 +59,9 @@ class SidePanelViewController: UITableViewController {
         else if indexPath.row == 2 {
             delegate?.VClSelected(VC: UIStoryboard.preferencesVC()!)
         }
-        
+        else if indexPath.row == 3 {
+            logoutDelegate?.Logout()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,6 +98,11 @@ class SidePanelViewController: UITableViewController {
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
         cell.selectedBackgroundView = backgroundColorView
+        
+        // for LogOut cell text color
+        if indexPath.row == 3 {
+            cell.textLabel?.textColor = UIColor.lightTextColor()
+        }
         
         return cell
     }
@@ -125,5 +141,8 @@ extension UIStoryboard {
         return mainStoryboard().instantiateViewControllerWithIdentifier("teamsVCID") as? TeamsVC
     }
 
+    class func loginVC() -> LoginVC? {
+        return mainStoryboard().instantiateViewControllerWithIdentifier("loginVCID") as? LoginVC
+    }
 }
 

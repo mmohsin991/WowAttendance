@@ -340,8 +340,10 @@ class WowRef {
         }
     }
     
-    func asyncLoginUser(email: String, password: String, callBack: (error: String?) -> Void){
+    func asyncLoginUser(email: String, password: String, callBack: (error: String?, user: WowUser?) -> Void){
         let url = "https://panacloudapi.herokuapp.com/api/signin"
+        
+        var userLocal : WowUser!
         
         var request = NSMutableURLRequest(URL: NSURL(string: url))
         var session = NSURLSession.sharedSession()
@@ -387,7 +389,7 @@ class WowRef {
                 if((err) != nil) {
                     
 //                    println(err!.localizedDescription)
-                    callBack(error: err!.localizedDescription)
+                    callBack(error: err!.localizedDescription, user: nil)
                     
                 }
                 if user != nil && statusCode == 1 {
@@ -395,13 +397,15 @@ class WowRef {
                         let userr =  user["userID"]
                         let token = user["token"]
                         
+                        userLocal = WowUser(userName: user["userID"]!, email: user["email"]!, firstName: user["firstName"]!, lastName: user["lastName"]!, teams: nil)
                         println("mohsin: \(userr) \n \(token)")
                         self.asyncLogin(user["userID"]!, token: user["token"]!, callBack: { (errorDesc) -> Void in
                             if errorDesc == nil {
-                                callBack(error: nil)
+                                callBack(error: nil, user: userLocal)
                             }
                             else{
-                                callBack(error: errorDesc)
+                                callBack(error: errorDesc, user: nil)
+
                             }
                         })
                     }
@@ -409,14 +413,15 @@ class WowRef {
                 
                 // if any error occuerd by our node.js server 
                 else if statusCode != 1 {
-                    callBack(error: statusDesc)
+                    callBack(error: statusDesc, user: nil)
+
                 }
 
             }
                 
                 // if response is not found nil
             else if response == nil {
-                callBack(error: "respnse is nil")
+                callBack(error: "respnse is nil", user: nil)
             }
 
             
