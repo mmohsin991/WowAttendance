@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42083E5F1A63C6070061D32E /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42083E5E1A63C6070061D32E /* TestStoryboard.storyboard */; };
 		423D62DC1A60718B00D92D1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D62DB1A60718B00D92D1B /* AppDelegate.swift */; };
 		423D62DF1A60718B00D92D1B /* WowAttendance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 423D62DD1A60718B00D92D1B /* WowAttendance.xcdatamodeld */; };
 		423D62E11A60718B00D92D1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D62E01A60718B00D92D1B /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42083E5E1A63C6070061D32E /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
 		423D62D61A60718B00D92D1B /* WowAttendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowAttendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423D62DA1A60718B00D92D1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423D62DB1A60718B00D92D1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				42E9E6BF1A61661200720F9F /* SidePanelViewController.swift */,
 				42E9E7001A61BDDB00720F9F /* Model and Constants */,
 				423D62E21A60718B00D92D1B /* Main.storyboard */,
+				42083E5E1A63C6070061D32E /* TestStoryboard.storyboard */,
 				423D62E51A60718B00D92D1B /* Images.xcassets */,
 				423D62E71A60718B00D92D1B /* LaunchScreen.xib */,
 				423D62DD1A60718B00D92D1B /* WowAttendance.xcdatamodeld */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				423D62E41A60718B00D92D1B /* Main.storyboard in Resources */,
+				42083E5F1A63C6070061D32E /* TestStoryboard.storyboard in Resources */,
 				423D62E91A60718B00D92D1B /* LaunchScreen.xib in Resources */,
 				423D62E61A60718B00D92D1B /* Images.xcassets in Resources */,
 			);

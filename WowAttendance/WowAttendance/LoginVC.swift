@@ -23,6 +23,8 @@ class LoginVC: UIViewController {
     
     @IBOutlet weak var imgBackground: UIImageView!
 
+    @IBOutlet weak var containerView: UIView!
+    
     var isWating = false
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class LoginVC: UIViewController {
         self.btnSignIn.layer.cornerRadius = 4.0
         self.btnSignUp.layer.cornerRadius = 4.0
         
+        self.containerView.frame = CGRect(x: 0, y: 60, width: 320, height: 428)
         
         // temp work
         
