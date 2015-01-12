@@ -120,6 +120,11 @@ class LoginVC: UIViewController {
     
     @IBAction func signIn(sender: UIButton) {
         
+//        self.txtEmail.resignFirstResponder()
+//        self.txtPassword.resignFirstResponder()
+        
+        self.view.endEditing(true)
+        
         
         if (self.txtEmail.text == "" || self.txtPassword.text == "") || (self.isWating) {
             if self.isWating{
@@ -186,7 +191,7 @@ class LoginVC: UIViewController {
             }, completion: nil)
     }
     @IBAction func passwordEditingComplete(sender: AnyObject) {
-        UIView.transitionWithView(self.view, duration: 0.5, options: UIViewAnimationOptions.TransitionNone, animations: {         self.view.frame = CGRect(x: 0, y: 0, width: 320, height: 568)
+        UIView.transitionWithView(self.view, duration: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: {         self.view.frame = CGRect(x: 0, y: 0, width: 320, height: 568)
             }, completion: nil)
     }
 

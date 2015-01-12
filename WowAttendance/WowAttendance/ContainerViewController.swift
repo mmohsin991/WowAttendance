@@ -184,10 +184,10 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
 
   func showShadowForCenterViewController(shouldShowShadow: Bool) {
     if (shouldShowShadow) {
-        centerNavigationController.view.layer.shadowOpacity = 0.3
-        centerNavigationController.view.layer.shadowOffset = CGSize(width: 3, height: 0)
-        centerNavigationController.view.layer.shadowRadius = 10.0
         centerNavigationController.view.layer.shadowColor = shadowColor
+        centerNavigationController.view.layer.shadowOpacity = 0.8
+//        centerNavigationController.view.layer.shadowOffset = CGSize(width: 3, height: 0)
+//        centerNavigationController.view.layer.shadowRadius = 10.0
         
     } else {
       centerNavigationController.view.layer.shadowOpacity = 0.0

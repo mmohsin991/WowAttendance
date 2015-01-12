@@ -39,6 +39,10 @@ class SidePanelViewController: UITableViewController {
         self.tableView.separatorInset = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
         
        // self.view.frame.origin = CGPoint(x: 200 , y: 0)
+       
+        
+        // disabel the
+        self.tableView.bounces = false
         
     }
 
