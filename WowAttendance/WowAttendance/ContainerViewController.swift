@@ -171,7 +171,8 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
   }
 
   func animateCenterPanelXPosition(#targetPosition: CGFloat, completion: ((Bool) -> Void)! = nil) {
-    UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .CurveEaseInOut, animations: {
+    
+    UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
         // set the distance of right VC from X-Axis
         let centerCVWidth = self.centerNavigationController.view.frame.width
         if self.rightViewController != nil {
@@ -222,8 +223,11 @@ class ContainerViewController: UIViewController, CenterViewControllerDelegate, S
       // view by the amount that the user has panned
         
         if gestureIsDraggingFromRighttoLeft {
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            recognizer.setTranslation(CGPointZero, inView: view)
+            if (currentState == .BothCollapsed) {
+                recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
+                recognizer.setTranslation(CGPointZero, inView: view)
+            }
+
         }
         // if right menu collapsed
         else if self.centerNavigationController.view.frame.origin.x < 0.0 {
