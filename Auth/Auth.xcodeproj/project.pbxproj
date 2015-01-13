@@ -13,13 +13,13 @@
 		423159641A4B6ADC00693D21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423159621A4B6ADC00693D21 /* Main.storyboard */; };
 		423159661A4B6ADC00693D21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 423159651A4B6ADC00693D21 /* Images.xcassets */; };
 		423159691A4B6ADC00693D21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 423159671A4B6ADC00693D21 /* LaunchScreen.xib */; };
+		423159751A4B6ADC00693D21 /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423159741A4B6ADC00693D21 /* AuthTests.swift */; };
 		4257B9271A5AB0A400EE5D64 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B9261A5AB0A400EE5D64 /* Firebase.framework */; };
 		4257B92C1A5AB1A000EE5D64 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B92B1A5AB1A000EE5D64 /* SystemConfiguration.framework */; };
 		4257B92E1A5AB1AD00EE5D64 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B92D1A5AB1AD00EE5D64 /* Security.framework */; };
 		4257B9301A5AB1B900EE5D64 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B92F1A5AB1B900EE5D64 /* CFNetwork.framework */; };
 		4257B9321A5AB1C800EE5D64 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B9311A5AB1C800EE5D64 /* libc++.dylib */; };
 		4257B9341A5AB1E700EE5D64 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4257B9331A5AB1E700EE5D64 /* libicucore.dylib */; };
-		426BAA861A65B4FE00FA3385 /* AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423159741A4B6ADC00693D21 /* AuthTests.swift */; };
 		42CB612E1A4C2FF1004A8FE8 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42CB612D1A4C2FF1004A8FE8 /* SwiftHTTP.framework */; };
 /* End PBXBuildFile section */
 
@@ -263,7 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				426BAA861A65B4FE00FA3385 /* AuthTests.swift in Sources */,
+				423159751A4B6ADC00693D21 /* AuthTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
