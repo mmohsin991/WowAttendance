@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 PanaCloud. All rights reserved.
 //
 
-// Test Branch
+// WowAttendance Branch
 
 import UIKit
 import CoreData
@@ -20,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        let containerViewController = ContainerViewController()
-        
-        window!.rootViewController = containerViewController
-        window!.makeKeyAndVisible()
+//        
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        
+//        let containerViewController = ContainerViewController()
+//        
+//        window!.rootViewController = containerViewController
+//        window!.makeKeyAndVisible()
         
         return true
     }
